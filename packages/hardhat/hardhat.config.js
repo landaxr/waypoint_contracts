@@ -2,6 +2,7 @@ require("dotenv").config();
 const { utils } = require("ethers");
 const fs = require("fs");
 const chalk = require("chalk");
+const { rinkebyKey } = require("./access_keys");
 
 require("@nomiclabs/hardhat-waffle");
 require("@tenderly/hardhat-tenderly");
@@ -77,7 +78,7 @@ module.exports = {
 			url: "", // <---- YOUR INFURA ID! (or it won't work)
 			//    url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXX/eth/rinkeby", // <---- YOUR MORALIS ID! (not limited to infura)
 			accounts: [
-				""
+				rinkebyKey
 			]
 		},
 		kovan: {
@@ -139,12 +140,10 @@ module.exports = {
 			}
 		},
 		mumbai: {
-			url: "https://rpc-mumbai.maticvigil.com",
+			url: "https://polygon-mumbai.infura.io/v3/73b792145e51488d9e98030d35ac6aa7",
 			// url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXX/polygon/mumbai", // <---- YOUR MORALIS ID! (not limited to infura)
 			gasPrice: 3200000000,
-			accounts: {
-				mnemonic: mnemonic()
-			}
+			accounts: [rinkebyKey]
 		},
 		matic: {
 			url: "https://rpc-mainnet.maticvigil.com/",
